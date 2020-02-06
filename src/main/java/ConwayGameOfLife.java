@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class ConwayGameOfLife {
 
   int rows;
@@ -63,8 +61,6 @@ public class ConwayGameOfLife {
 
     public int countLiveNeighbours(int r, int c)
     {
-      /*  Random random = new Random();
-        int count = random.nextInt();*/
         int count =0;
 
         count += isAliveOrDead(r-1, c-1); //moves from center to the left (r/x-axis) and to the top (c/y-axis)
@@ -81,7 +77,7 @@ public class ConwayGameOfLife {
         return count;
     }
 
-    public void nextGeneration()
+    public int[][] nextGeneration()
     {
     int[][] newGrid = new int[rows][cols]; //creating a new grid because i cannot use the old grid to check the state of the cells
         for(int r=0; r<rows; r++)
@@ -109,7 +105,8 @@ public class ConwayGameOfLife {
                 }
             }
         }
-        this.grid = newGrid;
+
+        return this.grid = newGrid;
     }
 
 }

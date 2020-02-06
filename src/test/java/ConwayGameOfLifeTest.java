@@ -8,23 +8,17 @@ class ConwayGameOfLifeTest {
 
     @Test
     void nextGenerationTest() {
+        ConwayGameOfLife gol = new ConwayGameOfLife(10,10);
 
-       /*ConwayGameOfLife generation =new ConwayGameOfLife(8,5);
-        int[][] Input = {
-                {0, 0, 1, 0, 0, 0},
-                {0, 0, 1, 1, 1, 0},
-                {0, 0, 0, 0, 0, 0}
-        };
+        int alive =1;
+        int dead =0;
+        int[][] grid = new int[alive][dead];
 
-        int[][] NetGeneration = {
-                {0, 0, 1, 0, 0, 0},
-                {0, 0, 1, 1, 0, 0},
-                {0, 0, 0, 0, 0, 0}
-        };
-        assertArrayEquals(NetGeneration, generation.nextGeneration());
-        //assertArrayEquals(NetGeneration, generation.nextGeneration());
-        //Assert.assertEquals(NetGeneration, generation.nextGeneration(Input));
-    }*/
+        assertArrayEquals(alive, gol.nextGeneration());
+        assertArrayEquals(dead, gol.nextGeneration());
 
+    }
+
+    private void assertArrayEquals(int alive, int[][] nextGeneration) {
     }
 }
