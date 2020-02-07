@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class ConwayGameOfLife {
 
   int rows;
@@ -15,7 +17,7 @@ public class ConwayGameOfLife {
 
 
  public void printCells(){
-        //Random random = new Random();
+        Random random = new Random();
         for(int r =0; r<rows; r++)
         {
             StringBuilder deadOrAlive= new StringBuilder();
@@ -62,7 +64,6 @@ public class ConwayGameOfLife {
     public int countLiveNeighbours(int r, int c)
     {
         int count =0;
-
         count += isAliveOrDead(r-1, c-1); //moves from center to the left (r/x-axis) and to the top (c/y-axis)
         count += isAliveOrDead(r, c-1); //moves from center to thr top(y-axis)
         count += isAliveOrDead(r+1, c-1); // moves to the right (x-axis) and to the top
@@ -73,6 +74,8 @@ public class ConwayGameOfLife {
         count += isAliveOrDead(r-1, c+1); //to the right and downwards
         count += isAliveOrDead(r, c+1);
         count += isAliveOrDead(r+1, c+1);
+
+
 
         return count;
     }
@@ -85,6 +88,7 @@ public class ConwayGameOfLife {
             for(int c=0; c<cols; c++)
             {
                 int liveNeighbour= countLiveNeighbours(r,c);
+
                 if(isAliveOrDead(r,c) ==1)
                 {
                     if(liveNeighbour <2) //Any live cell with fewer than two live neighbors dies, as if caused by under population.
