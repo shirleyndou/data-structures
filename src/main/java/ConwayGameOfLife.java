@@ -24,12 +24,12 @@ public class ConwayGameOfLife {
 
             for(int c=0; c<cols; c++)
             {
-                //this.grid[r][c] = random.nextInt();
+                this.grid[r][c] = random.nextInt(2); //randomising + and #
                 if(this.grid[r][c] ==0) {
-                    deadOrAlive.append("+ \t");
+                    deadOrAlive.append("+ \t"); //dead cell
                 }
                 else{
-                    deadOrAlive.append("# \t");
+                    deadOrAlive.append("# \t"); //alive cell
                 }
             }
             System.out.println(deadOrAlive + "\n");
@@ -37,16 +37,6 @@ public class ConwayGameOfLife {
         System.out.println("___________________");
     }
 
-
-    public void setDead(int r, int c)
-    {
-        this.grid[r][c] =0;
-    }
-
-    public void setLive(int r, int c)
-    {
-        this.grid[r][c] =1;
-    }
 
     /*This function checks to see if there are dead or alive neighbours*/
     public int isAliveOrDead(int r, int c)
@@ -75,11 +65,10 @@ public class ConwayGameOfLife {
         count += isAliveOrDead(r, c+1);
         count += isAliveOrDead(r+1, c+1);
 
-
-
         return count;
     }
 
+    /*Function for displaying the second generation cells derived from the print cells*/
     public int[][] nextGeneration()
     {
     int[][] newGrid = new int[rows][cols]; //creating a new grid because i cannot use the old grid to check the state of the cells
