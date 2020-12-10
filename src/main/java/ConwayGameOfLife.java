@@ -53,6 +53,9 @@ public class ConwayGameOfLife {
 
     public int countLiveNeighbours(int r, int c)
     {
+        /*grid[i - 1][j - 1] . grid[i - 1][j] .  grid[i - 1][j + 1]
+        grid[i][j - 1]     .       x        .  grid[i][j + 1]
+        grid[i + 1][j - 1] . grid[i + 1][j] .  grid[i + 1][j + 1]*/
         int count =0;
         count += isAliveOrDead(r-1, c-1); //moves from center to the left (r/x-axis) and to the top (c/y-axis)
         count += isAliveOrDead(r, c-1); //moves from center to thr top(y-axis)
